@@ -97,9 +97,9 @@ class _AjouterPersState extends State<AjouterPers> {
     String message;
     try {
       message = await platform.invokeMethod('onBnStart');
-      //  if (message == 'Device already connected!') {
-      //    message = await platform.invokeMethod('onBnRegister', {'strUidp': 'jhjghfhfcv'});
-      //  }
+       if (message == 'Device already connected!') {
+         message = await platform.invokeMethod('onBnRegister', {'strUidp': 'jhjghfhfcv'});
+       }
     } on PlatformException catch (e) {
       message = 'Erreur: ${e.message}';
     }
